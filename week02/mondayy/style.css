@@ -1,0 +1,58 @@
+#external{
+    color:#1f1f1f;
+}
+#p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+@font-face {
+    font-family:lobsterTwo ;
+    src: url(./LobsterTwo-Bold.ttf);
+}
+h1{
+    font-family: BedasNeune;
+    font-size: 40px;
+}
+a{
+    text-decoration: none;
+}
+.textDecoration{
+    /* text-decoration: dashed 1px black;= */
+    text-decoration-color: rgb(75, 57, 198);
+    text-decoration-line: underline;
+    text-decoration-style: dotted;
+}
+body{
+    background-color: #ffc75b;
+}
+p{
+    font-weight: bold;
+}
+p{ style:Italic ;}
+p{ 
+    font-uppercase
+}
+{
+    text-decoration: line-through;
+}
+
+.underline-text {
+    text-decoration: underline;
+}
+
+.link-list a:visited {
+    color: yellow;
+    text-decoration: underline;
+}
+
+.capitalize-paragraph {
+    text-transform: capitalize;
+}
+.Lorem{
+    color: rgb(235, 88, 3);
+}s
+.Underless{
+    text-decoration: underline;
+}
+.line{
+    text-decoration: line-through;
+}
