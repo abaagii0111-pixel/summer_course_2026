@@ -1,0 +1,24 @@
+#naadam-festival {
+    background-color: rgb(26, 26, 246);
+    border-top-style: dashed;
+    border-top-color: rgb(17, 0, 255);
+    border-top-width: 2px;
+    border-right-color: chartreuse;
+    border-left-color: dodgerblue;
+    border-right-width: 3px;
+    border-left-width: 4px border: left style 5px;
+    border-bottom: 3px;
+}
+
+
+.naadam-units {
+    background-color: rgb(97, 143, 22);
+    color: rgb(0, 240, 28);
+    text-align: right;
+    border: 5px solid gold;
+}
+
+
+h2 {
+    border: 3px dotted purple;
+}

@@ -1,0 +1,36 @@
+#image-gallery {
+    background-color: grey;
+    color: aqua;
+    border: 5px solid crimson;
+}
+
+img {
+    width: 300px;
+    height: 300px;
+}
+section{
+    display: inline-block;
+}
+#image01 {
+    border: 4px solid;
+    color: deeppink;
+    margin-left: 480px;
+}
+
+#image02 {
+    border: 5px solid;
+    color: blue;
+    margin-left: 200px;
+}
+
+#image03 {
+    border: 6px solid;
+    color: rgb(5, 238, 118);
+   margin-left: 200px;
+}
+
+.images {
+    width: 300px;
+    height: 300px;
+}
+

@@ -1,0 +1,28 @@
+
+.weather-table {
+    border-collapse: collapse; 
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+
+.weather-table th {
+    background-color: #190bdc;
+    color: white;
+}
+
+.weather-table tbody tr:nth-child(odd) {
+    background-color: #E2C799;
+}
+
+.weather-table tbody tr:nth-child(even) {
+    background-color: #C08261;
+}
+
+.exercise-table {
+    border-collapse: collapse; 
+    text-align: center;      
+    vertical-align: middle;    
+    font-family: sans-serif;
+}
