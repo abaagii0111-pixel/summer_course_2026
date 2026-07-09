@@ -1,0 +1,177 @@
+.boxes {
+    width:150px ;
+    height: 80px;
+    color: white;
+    background-color: bisque;
+    border: 3px solid aqua;
+    display: inline-block;
+}
+
+#box1{
+    border: dotted;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+#box2{
+    border: dashed;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+#box3{
+    border: solid;
+    border-radius: 30px;
+}
+
+#box4{
+    border: groove;
+    border-radius: 50%;`
+}
+
+#box5{
+    border: double;
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px double greenyellow;
+    margin-left: 18%;
+    padding: 30px;  
+}
+
+ #image-container{
+    width: 1440px;
+
+ }
+
+ .centered{
+    width: 800px;
+    height: 200px;
+    background-color: rgb(255, 145, 2);
+    margin:0 auto;
+ }
+
+.card {
+  max-width: 320px;
+  margin: 20px auto;             /* голд, дээр/доор зайтай */
+  padding: 24px;                 /* дотор амьсгал */
+  border: 1px solid #e2e8f0;     /* нимгэн ирмэг */
+  border-top: 4px solid #4f46e5; /* дээд өнгөт зурвас */
+  border-radius: 12px;           /* дугуй булан */
+  text-align: center;
+}
+
+.card-name {
+  color: #1e293b;
+  font-size: 22px;
+  margin-bottom: 4px;            /* доод зай */
+}
+
+.card-role {
+  color: #4f46e5;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;  /* тусгаарлагч шугам */
+}
+
+.card-bio {
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+
+
+.card1 {
+  max-width: 320px;
+  margin: 20px auto;             /* голд, дээр/доор зайтай */
+  padding: 24px;                 /* дотор амьсгал */
+  border: 1px solid #e2e8f0;     /* нимгэн ирмэг */
+  border-top: 4px solid darkblue; /* дээд өнгөт зурвас */
+  border-radius: 12px;           /* дугуй булан */
+  text-align: center;
+}
+
+.card-name1 {
+  color: #1e293b;
+  font-size: 22px;
+  margin-bottom: 4px;            /* доод зай */
+}
+
+.card-role1 {
+  color: #4f46e5;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;  /* тусгаарлагч шугам */
+}
+
+.card-bio1 {
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+.card2 {
+  max-width: 320px;
+  margin: 20px auto;             /* голд, дээр/доор зайтай */
+  padding: 24px;                 /* дотор амьсгал */
+  border: 1px solid #00ff11;     /* нимгэн ирмэг */
+  border-top: 4px solid rgb(8, 229, 0); /* дээд өнгөт зурвас */
+  border-radius: 12px;           /* дугуй булан */
+  text-align: center;
+}
+
+.card-name2 {
+  color: #1e293b;
+  font-size: 22px;
+  margin-bottom: 4px;            /* доод зай */
+}
+
+.card-role2 {
+  color: #4f46e5;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;  /* тусгаарлагч шугам */
+}
+
+.card-bio2 {
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 10px;
+}
+
+
+
+
+
+.card3 {
+  max-width: 320px;
+  margin: 20px auto;             /* голд, дээр/доор зайтай */
+  padding: 24px;                 /* дотор амьсгал */
+  border: 1px solid #e2e8f0;     /* нимгэн ирмэг */
+  border-top: 4px solid rgb(233, 102, 124); /* дээд өнгөт зурвас */
+  border-radius: 12px;           /* дугуй булан */
+  text-align: center;
+}
+
+.card-name3 {
+  color: #1e293b;
+  font-size: 22px;
+  margin-bottom: 4px;            /* доод зай */
+}
+
+.card-role3 {
+  color: #4f46e5;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e8f0;  /* тусгаарлагч шугам */
+}
+
+.card-bio3 {
+  color: #64748b;
+  line-height: 1.6;
+  margin-top: 10px;
+}
