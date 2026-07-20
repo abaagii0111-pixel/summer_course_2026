@@ -1,0 +1,20 @@
+main{
+    width: 800px;
+    height: 600px;
+    background-color: rgb(241, 217, 217);
+    margin: auto;
+    color: rgb(95, 160, 112);
+}
+h2{
+    color: aqua;
+    text-align: center;
+    padding-top:10px;
+}
+p{
+    border: 2px darkred;
+    border-style: dotted;
+    padding: 10px;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
