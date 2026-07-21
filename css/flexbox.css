@@ -1,0 +1,22 @@
+.flex-container {
+    border: 2px solid rgb(245, 104, 57);
+    background-color: rgb(202, 88, 76);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+    height: 400px;
+
+    align-items: center; 
+}
+
+.flex-child {
+    width: 50px;
+    height: 20px;
+    background-color: yellowgreen;
+    border: 2px solid darkblue;
+    /* display: inline-block;
+    margin-right: 6%;
+    margin-left: 6%; */
+
+}

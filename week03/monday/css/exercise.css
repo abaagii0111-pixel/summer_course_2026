@@ -1,0 +1,120 @@
+#div1 {
+    margin: 0 auto;
+    background-color: aqua;
+    text-align: center;
+    border: 2px dotted black;
+    padding: 40px;
+}
+
+#p1 {
+    text-align: center;
+    border-style: groove;
+    border-color: darkblue;
+    width: auto;
+    height: 40px;
+    padding-bottom: 20px;
+}
+
+#block1 {
+    background-color: bisque;
+    display: block;
+}
+
+#block2 {
+    background-color: cadetblue;
+    display: inline;
+}
+
+h1 {
+    color: darkcyan;
+}
+
+.div01 {
+    background-color: gainsboro;
+    height: 50px;
+    width: 50px;
+    display: inline;
+}
+
+#div05 {
+    background-color: palevioletred;
+    display: inline-block;
+}
+
+#div5 {
+    background-color: palevioletred;
+}
+
+#div6 {
+    box-shadow: 10px 5px 5px red;
+    height: 100px;
+    width: 220px;
+    background-color: cornflowerblue;
+}
+
+.outer-box {
+    width: 200px;
+    height: 125px;
+    background-color: blue;
+    border-radius: 30px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-box {
+    width: 180px;
+    height: 100px;
+    background-color: red;
+    border-radius: 25px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    color: gold;
+    font-size: 28px;
+    font-weight: bold;
+    font-family: serif;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+}
+
+#box1 {
+    border-top: 1px solid blue;
+   
+}
+#box01{
+    border-top: 1px solid pink;
+}
+.box2{
+    border-bottom: 1px solid green;
+}
+.box001{
+     border-left: 1px solid yellowgreen;
+}
+.box000{
+    border-right: 1px solid yellow;
+}
+.box02{
+    border-bottom: 1px solid darkblue;
+}
+#box0{
+    border-right: 1px solid  rebeccapurple;
+}
+.box00{
+    border-right: 1px solid paleturquoise;
+    border-bottom: 1px solid red;
+}
+
+img{
+    width: 100px;
+    height: 100px;
+}
+#boxs{
+    border-bottom: 1px solid red;
+}
