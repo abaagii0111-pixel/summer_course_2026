@@ -1,0 +1,130 @@
+h1 {
+    color: darkcyan;
+}
+
+.flex-container {
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+}
+
+.flex-child {
+    height: 10%;
+    width: 80px;
+}
+
+.flex1 {
+    background-color: green;
+}
+
+.flex2 {
+    background-color: orange;
+}
+
+.flex3 {
+    background-color: pink;
+}
+
+.flex4 {
+    background-color: red;
+}
+
+.flex5 {
+    background-color: plum;
+}
+
+.flex-container1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    height: 250px;
+    border: 8px solid #222222;
+}
+
+.flex-child1 {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+.flex01 {
+    background-color: yellow;
+}
+
+.flex02 {
+    background-color: orange;
+}
+
+.flex03 {
+    background-color: palevioletred;
+}
+
+.flex04 {
+    background-color: red;
+}
+
+/* exercise 03 */
+.flex-container3 {
+    height: 500px;
+    width: 700px;
+    border: 1px solid black;
+    align-items:center ;
+}
+
+.row {
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    justify-content: space-around;
+}
+
+.row .left {
+    border: 1px solid black;
+    width: 30%;
+    background-color: green;
+     align-items: center;
+}
+
+.row .right {
+    border: 1px solid black;
+    width: 60%;
+    background-color: blue;
+     align-items: center;
+}
+
+.row4 {
+    border: 1px solid black;
+    width: 665px;
+    background-color: pink;
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    margin: auto;
+    justify-content: space-around;
+}
+
+.flex-container4{
+    height: 600px;
+    width: 800px;
+    border: 1px solid black;
+}
+
+.row{
+    display: flex;
+    height: 100px;
+}
+
+.row01{
+    flex: 1;
+    background-color: red;
+    width: 200px;
+    
+}
