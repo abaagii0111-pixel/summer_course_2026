@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="mn">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Дасгал 3 - Тоглогчийн профайл (бүгдийг нэгтгэх)</title>
+    <link rel="stylesheet" href="./css/display02.css">
+    <!--
+    ДАСГАЛ 3: Тоглогчийн профайл хуудас```
+    Түвшин: Хүнд
+    Сэдэв: relative, absolute, sticky, z-index — бүгдийг нэгтгэнэ
+
+    Даалгавар (энэ удаад property зааврыг өгөхгүй,
+    шаардлагыг уншаад өөрөө шийдээрэй):
+
+    1. Ковер зургийн ДООД хэсэгт хагас тунгалаг хар overlay
+       байрлаж, дотор нь тоглогчийн нэр харагдана.
+       - Дэвсгэр: rgba(0, 0, 0, 0.6), үсэг: #ffffff, padding: 12px 24px
+    2. Аватар (дугуй) ковер зургийн доод ирмэг ДЭЭГҮҮР
+       давхарлаж байрлана: аватарын тал нь ковер дотор,
+       тал нь гадна байна.
+       - Зүүнээс: 24px, доороос: -40px
+       - Хэмжээ: 80x80px, border: 4px solid #ffffff
+       - Overlay-ийн ДЭЭР харагдах ёстой
+
+    3. "Оноо", "Медалиуд" гэсэн хэсгийн гарчгууд скролл хийхэд
+       дэлгэцийн дээд хэсэгт (top: 0) наалдана.
+
+    4. Аватар доош цухуйсан тул .profile-body-д дээд зай
+       хэрэгтэй болно — өөрөө тохируулаарай.
+  -->
+</head>
+
+<body>
+
+    <div class="cover">
+        <div class="avatar"></div>
+        <div class="cover-overlay">Бат-Эрдэнэ</div>
+    </div>
+
+    <div class="profile-body">
+        <p>Нэгдсэн: 2026 оны 3-р сар · Нийт тоглолт: 128</p>
+
+        <h3 class="section-heading">Оноо</h3>
+        <div class="item">Могой — 9800</div>
+        <div class="item">Сансрын буудлага — 8600</div>
+        <div class="item">Платформер — 8400</div>
+        <div class="item">Тетрис — 7900</div>
+        <div class="item">Пакман — 7500</div>
+
+        <h3 class="section-heading">Медалиуд</h3>
+        <div class="item">🥇 Могой — 1-р байр</div>
+        <div class="item">🥉 Сансрын буудлага — 3-р байр</div>
+        <div class="item">🏅 7 хоног дараалан тоглосон</div>
+        <div class="item">🏅 Анхны 5000 оноо</div>
+        <div class="item">🏅 Анхны 100 тоглолт</div>
+        <div class="item">🏅 Шөнийн тоглогч</div>
+        <div class="item">🏅 Өглөөний тоглогч</div>
+        <div class="item">🏅 Марафон — 3 цаг</div>
+    </div>
+
+</body>
+
+</html>`

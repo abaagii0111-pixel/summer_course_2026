@@ -1,0 +1,52 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 24px;
+    background-color: #f5f5f5;
+}
+
+.card-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.player-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 24px;
+    background-color: #fff;
+    border-radius: 8px;
+    text-align: center;
+
+   position: relative;
+}
+
+.rank {
+    font-weight: bold;
+    background-color: #f59e0b;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    line-height: 32px;
+
+    position: absolute;
+    top: -16px;
+    left: -16px;
+}
+
+.live{
+    font-size: 11px;
+    font-weight: bold;
+
+    background-color: red;
+    color: #ffffff;
+    
+    position: absolute;
+    right: 12px;
+    top: 10px;
+
+    border-radius: 4px;
+    padding: 2px 8px;
+}

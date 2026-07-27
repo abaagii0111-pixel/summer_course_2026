@@ -1,0 +1,115 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+    /* TODO 1-ийн үргэлжлэл: navbar-ийг fixed болгоход контентын эхлэл
+     далд орно. body-д padding-top: 56px нэмж засаарай. */
+}
+
+/* ===== 1-Р ХЭСЭГ: ТОГТМОЛ NAVBAR (fixed) ===== */
+/* TODO 1: .navbar-ийг дэлгэцийн дээд хэсэгт тогтмол байрлуул
+       - Скролл хийхэд контентын ДЭЭР харагдах ёстой */
+.navbar {
+    background-color: #1e293b;
+    color: #ffffff;
+    padding: 16px 24px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    z-index: 100;
+}
+
+/* ===== 2-Р ХЭСЭГ: НААЛДАМХАЙ ГАРЧИГ (sticky) ===== */
+/* TODO 2: .section-title-ийг скролл хийхэд navbar-ийн доор
+       наалддаг болго.
+       - Контентын дээр харагдана  */
+.section-title {
+    background-color: #e2e8f0;
+    padding: 12px 24px;
+    margin: 0;
+    position: sticky;
+    top: 56px;
+    z-index: 900;
+
+}
+
+/* ===== 3-Р ХЭСЭГ: КАРТ ДЭЭРХ BADGE (relative + absolute) ===== */
+.card-row {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 24px;
+}
+
+/* TODO 3: .card-ийг badge-ийн ЖИШИГ ЦЭГ болго.
+       */
+.card {
+    flex: 1;
+    min-width: 200px;
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    position: relative;
+
+}
+
+/* TODO 4: .badge-ийг картын баруун дээд буланд байрлуул.
+       - position: absolute
+       
+       - Дэвсгэр өнгө: #dc2626, үсгийн өнгө: #ffffff
+        */
+.badge {
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #dc2026;
+    color: #ffffff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    top: 1;
+    right: 16px;
+    bottom: ;
+    
+}
+
+/* ===== 4-Р ХЭСЭГ: ЗУРАГ ДЭЭРХ OVERLAY ===== */
+/* TODO 5: .screenshot-ийг overlay-ийн жишиг цэг болго
+      */
+.screenshot {
+    height: 180px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    margin-top: 12px;
+    position: relative;
+    overflow: hidden;
+
+
+}
+
+/* TODO 6: .overlay-ийг зургийн ДООД хэсгийг бүрхүүл.
+   
+       - Дэвсгэр өнгө: rgba(0, 0, 0, 0.6)
+       - Үсгийн өнгө: #ffffff
+       */
+.overlay {
+    font-size: 14px;
+    background: rgba(0, 0, 0, 0.6);
+    color: #ffffff;
+    padding: 10px 12px;
+    box-sizing: border-box;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+/* Урт хуудас үүсгэж скроллыг шалгах зориулалттай */
+.filler {
+    height: 600px;
+    padding: 24px;
+    color: #64748b;
+}

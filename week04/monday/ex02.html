@@ -1,0 +1,102 @@
+`<!DOCTYPE html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <title>Grid дасгал - Хуудасны бүтэц ба галерей</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    /* ===== 1-Р ХЭСЭГ: ХУУДАСНЫ БҮТЭЦ ===== */
+    /* TODO 1: .page-ийг grid container болго.
+       - Хоёр багана: sidebar 200px өргөнтэй, main үлдсэн зайг эзэлнэ (заавар: fr)
+       - Гурван мөр: header auto, дунд хэсэг үлдсэн зайг эзэлнэ, footer auto
+       - Grid дэлгэцийн бүтэн өндрийг эзэлнэ: 100vh
+       - grid-template-areas-д дараах нэрсийг ашигла:
+           "header header"
+           "sidebar main"
+           "footer footer" */
+    .page {
+    display: grid;
+    
+    }
+
+    /* TODO 2: Хэсэг бүрийг өөрийн grid талбарт оноож өг
+       (заавар: grid-area). */
+    .header {
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 16px;
+    }
+
+    .sidebar {
+      background-color: #e2e8f0;
+      padding: 16px;
+    }
+
+    .main {
+      padding: 16px;
+    }
+
+    .footer {
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 16px;
+      text-align: center;
+    }
+
+    /* ===== 2-Р ХЭСЭГ: ОНООНЫ ГАЛЕРЕЙ ===== */
+    /* TODO 3: .gallery-ийг grid container болго.
+       - 3 тэнцүү багана (заавар: repeat)
+       - Зай: 12px
+       - Дээд margin: 16px */
+    .gallery {
+
+    }
+
+    .tile {
+      background-color: #dbeafe;
+      padding: 24px;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    /* TODO 4: Эхний хавтанг (.tile-wide) 2 багана эзэлдэг болго
+       (заавар: grid-column). */
+    .tile-wide {
+    grid-column: ;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+    <header class="header">Тэргүүлэгчдийн самбар</header>
+
+    <aside class="sidebar">
+      <p>Цэс</p>
+      <p>Тоглогчид</p>
+      <p>Оноо</p>
+      <p>Тохиргоо</p>
+    </aside>
+
+    <main class="main">
+      <h2>Шилдэг оноо</h2>
+      <div class="gallery">
+        <div class="tile tile-wide">Бат-Эрдэнэ — 9800</div>
+        <div class="tile">Сарнай — 8700</div>
+        <div class="tile">Тэмүүлэн — 8500</div>
+        <div class="tile">Анужин — 8200</div>
+        <div class="tile">Ганболд — 7900</div>
+      </div>
+    </main>
+
+    <footer class="footer">2026 GameShop</footer>
+  </div>
+
+</body>
+</html>`
+
+message.t
