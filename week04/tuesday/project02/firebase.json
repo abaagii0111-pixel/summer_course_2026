@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "summer-course-2026-baagii-ff1d4",
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

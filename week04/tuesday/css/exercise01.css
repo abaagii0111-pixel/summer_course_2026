@@ -1,0 +1,59 @@
+h2 {
+    color: aqua;
+}
+
+button {
+    background-color: whitesmoke;
+    position: absolute;
+    position: relative;
+    left: 250px;
+    bottom: 85px;
+    
+}
+
+#zurag {
+    background-color: yellow;
+    position: absolute;
+    position: relative;
+    width: 250px;
+    height: 40px;
+    bottom: 50px;
+    left: 15%;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    color: rgb(36, 30, 209);
+    padding: 8px 14px;
+    margin-right: 6px;
+    float: inline-start;
+    font-family: sans-serif;
+    text-decoration: underline;
+    text-align: center;
+    font-size: 18px;
+
+}
+
+.navbar li:hover {
+    background-color: rgb(205, 205, 255);
+    text-decoration: none;
+}
+
+#dasgal4 {
+    position: fixed;
+    background-color: black;
+    color: whitesmoke;
+}
+
+header {
+    background-color: black;
+    color: whitesmoke;
+    height: 40px;
+}
+
+footer {
+    background-color: black;
+    color: whitesmoke;
+    height: 40px;
+}
