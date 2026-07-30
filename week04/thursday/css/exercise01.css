@@ -1,0 +1,24 @@
+h1{
+    color: darkcyan;
+}
+#group {
+    display: block;
+}
+
+#nv {
+    background-color: aqua;
+    display: inline-block;
+    min-width: 250px;
+}
+
+img {
+    width: 150px;
+}
+
+#sidee {
+    background-color: rgb(255, 216, 166);
+    padding: 15px;
+    max-width: 500px;
+    line-height: 1.5;   
+    color: darkgreen;
+}
