@@ -1,0 +1,18 @@
+{
+  "projects": {
+    "default": "summer-course-2026-baagii"
+  },
+  "targets": {
+    "summer-course-2026-baagii": {
+      "hosting": {
+        "project01": [
+          "my-project001-app"
+        ],
+        "project02": [
+          "my-project02-app"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
