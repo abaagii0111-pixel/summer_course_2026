@@ -1,0 +1,25 @@
+let ballX = 300;
+let ballY = 200;
+let ballSize = 100;
+let ballColor = "#3498db";
+let mouseDistance;
+function setup() {
+    createCanvas(600, 400);
+}
+function draw() {
+    background("#f3f0afff")
+    mouseDistance = dist(mouseX, mouseY, ballX, ballY);
+    if (mouseDistance < 60) {
+        background("#d4ff00ff");
+        ballSize = 180
+    } else if (mouseDistance < 120) {
+        ballSize = 180;
+        background(" #e74c3c");
+    }
+    else {
+        ballSize = 100;
+        ballColor = "#3498db";
+    }
+    fill(ballColor)
+    circle(ballX, ballY, ballSize);
+} 
