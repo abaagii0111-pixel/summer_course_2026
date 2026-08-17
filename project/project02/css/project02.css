@@ -14,12 +14,11 @@ main {
     margin: 0 auto;
     position: relative;
     
-    /* Дээд талын хоёр буланг картыхаа хэлбэрт тохируулан бөөрөнхийлнө */
+   
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
-    background-color: rgb(135, 34, 62); /* Улаан/Ягаан фонн
-    /* Доод хэсгийг нь илүүдэл өнгө гарахаас сэргийлж тайрна */
-    overflow: hidden; 
+    background-color: rgb(135, 34, 62); 
+   
 }
 
 .rec #profile {
@@ -115,8 +114,4 @@ main {
 #backround {
     background-color: white;
     border-radius: 60px;
-}
-
-#zurg1{
-   ma
 }
