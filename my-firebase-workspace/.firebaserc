@@ -10,6 +10,9 @@
         ],
         "project02": [
           "my-project002-app"
+        ],
+        "project03": [
+          "my-project003-app"
         ]
       }
     }
