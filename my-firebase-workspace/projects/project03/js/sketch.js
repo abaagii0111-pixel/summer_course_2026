@@ -1,34 +1,37 @@
 let score = 0;
 let lives = 3;
-let gameState = "playing"; 
+let gameState = "playing";
 
 
 let player = {
-    x: 350,
-    y: 430,
-    w: 95,
-    h: 35,
-    speed: 10
+    x: 750,
+    y: 860,
+    w: 140,
+    h: 45,
+    speed: 13
 };
 
 let foods = [];
-let numFoods = 7;
+let numFoods = 17;
 
-let goodEmojiList = ["🍎", "🍕", "🍔", "🍓", "🍩", "🍧","🌮"];
+let goodEmojiList = ["🍎", "🍕", "🍔", "🍓", "🍩", "🍧", "🌮"];
 let badEmojiList = ["💣", "💩", "🦠"];
 
 function setup() {
-    createCanvas(700, 500);
+    let canvas = createCanvas(1500, 940);
+
+    canvas.elt.tabIndex = 0;
+    canvas.elt.focus();
 
     for (let i = 0; i < numFoods; i++) {
         foods.push(createRandomFood());
     }
 }
-
 function draw() {
-    background('#6bb8d5');
+    background('#24b6c3');
 
     if (gameState === "playing") {
+        // Тоглогчийн логик
         movePlayer();
         drawPlayer();
 
@@ -36,6 +39,7 @@ function draw() {
             updateFood(foods[i]);
             drawFood(foods[i]);
 
+            // Мөргөлдөөн шалгах
             if (checkCollision(foods[i])) {
                 if (foods[i].type === "good") {
                     score += 10;
@@ -65,32 +69,69 @@ function createRandomFood() {
     let foodSymbol = isGood ? random(goodEmojiList) : random(badEmojiList);
 
     return {
-        x: random(35, width - 35),
-        y: random(-200, -20),
-        speed: random(2, 6),
-        size: random(35, 50),
+        x: random(55, width - 55),
+        y: random(-450, -30),
+        speed: random(3, 7.5),
+        size: random(40, 70),
         type: foodType,
         symbol: foodSymbol
     };
 }
 
 function drawPlayer() {
-    fill('#225c95');
-    rectMode(CENTER);
-    rect(player.x, player.y, player.w, player.h, 10);
+  push();
+  rectMode(CENTER);
+  ellipseMode(CENTER);
 
-    fill(255);
-    textSize(15);
-    textAlign(CENTER, CENTER);
-    text("🧺 Cагс", player.x, player.y);
+  noFill();
+  stroke('#3b2b2b'); 
+  strokeWeight(8);     
+  arc(player.x, player.y - player.h / 2, player.w - 20, player.h + 50, PI, TWO_PI);
+
+  fill('#391c1c'); 
+  stroke(101, 67, 33);
+  strokeWeight(3);
+  
+  beginShape();
+  vertex(player.x - player.w / 2, player.y - player.h / 2); 
+  vertex(player.x + player.w / 2, player.y - player.h / 2); 
+  vertex(player.x + player.w / 2 - 15, player.y + player.h / 2); 
+vertex(player.x - player.w / 2 + 15, player.y + player.h / 2);
+  endShape(CLOSE);
+
+  
+  fill(130, 69, 19);
+  ellipse(player.x, player.y - player.h / 2, player.w, 14);
+
+
+  stroke(101, 67, 33);
+  strokeWeight(2);
+ 
+  for (let offset = -player.w / 3; offset <= player.w / 3; offset += 20) {
+    line(player.x + offset, player.y - player.h / 2 + 5, player.x + offset * 0.8, player.y + player.h / 2 - 2);
+  }
+  line(player.x - player.w / 2 + 8, player.y, player.x + player.w / 2 - 8, player.y);
+
+  pop();
 }
 
 function movePlayer() {
-    if (keyIsDown(LEFT_ARROW) && player.x - player.w / 2 > 0) {
-        player.x -= player.speed;
+    if (
+        keyIsDown(LEFT_ARROW) ||
+        (keyIsPressed && (key === 'a' || key === 'A' || key === 'ф' || key === 'Ф'))
+    ) {
+        if (player.x - player.w / 2 > 0) {
+            player.x -= player.speed;
+        }
     }
-    if (keyIsDown(RIGHT_ARROW) && player.x + player.w / 2 < width) {
-        player.x += player.speed;
+
+    if (
+        keyIsDown(RIGHT_ARROW) ||
+        (keyIsPressed && (key === 'd' || key === 'D' || key === 'в' || key === 'В'))
+    ) {
+        if (player.x + player.w / 2 < width) {
+            player.x += player.speed;
+        }
     }
 }
 
@@ -100,7 +141,6 @@ function drawFood(food) {
     text(food.symbol, food.x, food.y);
 }
 
-// Хоолыг доошлуулах
 function updateFood(food) {
     food.y += food.speed;
 }
@@ -112,10 +152,10 @@ function checkCollision(food) {
 
 function drawHUD() {
     fill(0);
-    textSize(20);
+    textSize(30);
     textAlign(LEFT, TOP);
-    text(`Оноо: ${score}`, 20, 20);
-    text(`Амь: ${lives}`, 20, 45);
+    text(`Оноо: ${score}`, 30, 30);
+    text(`Амь: ${lives}`, 30, 75);
 }
 
 function drawGameOver() {
