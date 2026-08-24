@@ -1,19 +1,19 @@
 # AGENTS.md
 
-Static HTML/CSS/JS teaching workspace (summer_course_2026, GitHub: abaagii0111-pixel). No package.json, build step, tests, or lint — open the `.html` files in a browser to run/verify. Nothing to install or run.
+Статик HTML/CSS/JS заах ажлын орон зай (summer_course_2026, GitHub: abaagii0111-pixel). `package.json`, build алхам, тест, lint байхгүй — `.html` файлуудыг браузер дээр нээж ажиллуулна/шалгана. Юу ч суулгах, ажиллуулах шаардлагагүй.
 
-## Layout & conventions
-- Course weeks: `weekNN/<day>/` (monday/tuesday/thursday/friday), each lesson is a set of `.html` + `.css` + `js/<name>.js` files. Paired files share a base name (e.g. `ex01.html` / `ex01.css` / `js/ex01.js`).
-- HTML links CSS and JS with relative paths (`./ex01.css`, `./js/ex01.js`).
-- p5.js is vendored (9 copies of `p5.min.js`); every folder keeps its own copy and links it locally. Never assume a shared/CDN copy.
-- Code comments are in Mongolian; git commit messages are in English ("summer course 2026 update").
+## Бүтэц & дүрмүүд
+- Хичээлийн долоо хоногууд: `weekNN/<day>/` (monday/tuesday/thursday/friday), хичээл бүр `.html` + `.css` + `js/<name>.js` файлуудаас бүрдэнэ. Хосолсон файлууд нэг нэртэй (жишээ нь `ex01.html` / `ex01.css` / `js/ex01.js`; хожмын долоо хоногт `beginner.html` / `js/beginner.js` гэх мэт тайлбартай нэршлүүд хэрэглэгдэнэ).
+- HTML нь CSS болон JS-г харьцангуй замаар холбоно (`./ex01.css`, `./js/ex01.js`).
+- p5.js нь фолдер бүрт тус тусад нь хадгалагддаг (12 хуулбар tracked); фолдер бүр өөрийн хуулбарыг хадгалж, локалаар холбоно. Хуваалцсан/CDN хуулбарыг хэзээ ч бүү тооц.
+- Кодын тайлбарууд Монгол хэлээр; git commit мессежүүд Англи хэлээр ("summer course 2026 update").
 
-## Firebase hosting (two setups)
-- `my-firebase-workspace/` — multi-site config. `firebase.json` uses `target:` (project01, project02) mapped in `.firebaserc` to apps `my-project001-app` / `my-project002-app` on project `summer-course-2026-baagii`. Deploy per site: `firebase deploy --only hosting:project01`.
-- `week04/tuesday/project01|02/` — older standalone dirs with `public/` subfolder + SPA rewrite; run `firebase deploy` from the project dir.
-- `my-firebase-workspace/projects/project03/` is NOT wired into `firebase.json` targets yet (work-in-progress p5 sketch).
+## Firebase hosting (хоёр тохиргоо)
+- `my-firebase-workspace/` — олон сайттай тохиргоо (эндээс deploy хийнэ). `firebase.json` нь `target:` project01/02/03 ашиглаж, `.firebaserc`-т `my-project001-app` / `my-project002-app` / `my-project003-app` аппуудад `summer-course-2026-baagii` төсөл дээр холбогддог. Сайт бүрээр deploy: `firebase deploy --only hosting:project03`.
+- `week04/tuesday/project01|02/` — хуучин бие даасан хавтаснууд, `public/` дэд фолдер + SPA rewrite; `firebase deploy`-г тухайн төслийн хавтсаас ажиллуулна.
+- `my-firebase-workspace/projects/project03/` — одоогийн хийгдэж буй p5 sketch, `firebase.json` болон `.firebaserc`-т аль хэдийн холбогдсон.
 
-## Git gotchas
-- Repo on `main`, remote `git@github.com:abaagii0111-pixel/summer_course_2026.git`.
-- No `.gitignore`. `.DS_Store` and `.firebase/*.cache` are tracked — don't add new copies (e.g. re-copied `p5.min.js`, `.firebase/` caches).
-- Uncommitted state (2026-08-18): `week07/tuesday/` untracked; root `project/` folder staged for deletion (superseded by `my-firebase-workspace/projects/`). When committing, stage only intended files and match the "summer course 2026 update" style.
+## Git gotcha-ууд
+- Репо `main` дээр, remote `git@github.com:abaagii0111-pixel/summer_course_2026.git`.
+- Root `.gitignore` байхгүй. `.DS_Store` (3 хуулбар) болон `.firebase/*.cache` (3 хуулбар) tracked — шинэ хуулбар нэмж болохгүй (жишээ нь дахин хуулсан `p5.min.js`, `.firebase/` cache). Зөвхөн `week04/tuesday/project01|02/.gitignore` байдаг.
+- Энгийн урсгал: шинэ `weekNN/` фолдер untracked харагддаг бөгөөд нэг "summer course 2026 update" commit-оор бүхэлдээ commit хийгддэг. Эхлээд `git status` шалгаж, зөвхөн зориулалтын файлуудыг stage хийх (хуучин долоо хоногт хамааралгүй өөрчлөлт хийхгүй байх) мөн commit мессежийн хэв маягийг баримтлах. 2026-08-24-ний байдлаар: `week08/` untracked; `projects/project03/*` болон `week05/monday/emoji.html`-д өөрчлөлт хийгдэж байна.
