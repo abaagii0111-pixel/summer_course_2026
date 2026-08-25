@@ -16,7 +16,7 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  font-family: Arial, sans-serif;
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', Arial, sans-serif;
   color: #ffffff;
 }
 
@@ -24,14 +24,19 @@ canvas {
   width: 100% !important;
   height: auto !important;
   max-width: 1500px;
+  touch-action: none;
   border: 4px solid #fff;
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
 
-  background-image: url('./screenshots/catch-food.jpeg');
+  background-image: url('./screenshots/play.jpeg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+canvas.game-bg {
+  background-image: url('./screenshots/gal-togoo.jpg');
 }
 
 .game-container {
@@ -77,6 +82,40 @@ canvas {
   text-shadow: 0 0 4px #000;
 }
 
+.controls {
+  display: none;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  padding-bottom: 24px;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.control-btn {
+  width: 72px;
+  height: 72px;
+  font-size: 30px;
+  line-height: 1;
+  color: #e94560;
+  background: rgba(22, 33, 62, 0.9);
+  border: 2px solid #e94560;
+  border-bottom: 4px solid #e94560;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: none;
+  -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.control-btn:active {
+  background: #e94560;
+  color: #ffffff;
+}
+
 @media screen and (min-width: 1025px) and (max-width: 1440px) {
   .game-container { max-width: 85vw; }
   .instructions p { font-size: 14px; }
@@ -101,4 +140,6 @@ canvas {
   .instructions { padding: 8px 12px; }
   .instructions p { font-size: 11px; line-height: 1.4; }
   .game-btn { font-size: 10px; padding: 1px 4px; margin: 0 1px; }
+  .controls { display: flex; }
+  .control-btn { width: 62px; height: 62px; font-size: 26px; }
 }

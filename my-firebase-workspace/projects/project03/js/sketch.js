@@ -1,6 +1,6 @@
 let score = 0;
 let lives = 3;
-let gameState = "playing";
+let gameState = "start";
 
 let player = {
     x: 750,
@@ -13,6 +13,11 @@ let player = {
 let foods = [];
 let numFoods = 17;
 
+let touchDir = 0;
+
+let leftBtnHeld = false;
+let rightBtnHeld = false;
+
 let goodEmojiList = ["🍎", "🍕", "🍔", "🍓", "🍩", "🍧", "🌮", "🍰"];
 let badEmojiList = ["💣", "💩", "🦠"];
 
@@ -24,14 +29,76 @@ function setup() {
 
     bgImg = loadImage('./screenshots/catch-food.jpeg');
 
+    textFont("'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', Arial, sans-serif");
+
     for (let i = 0; i < numFoods; i++) {
         foods.push(createRandomFood());
+    }
+
+    setupMobileControls();
+}
+
+// Хоёр удаа зурах аргаар текстэд контур нэмж харагдах болгоно
+function drawTextOutline(txt, x, y, outlineColor) {
+    if (outlineColor) {
+        fill(outlineColor);
+    } else {
+        fill(0, 0, 0, 220);
+    }
+    for (let dx = -3; dx <= 3; dx += 3) {
+        for (let dy = -3; dy <= 3; dy += 3) {
+            if (dx === 0 && dy === 0) continue;
+            text(txt, x + dx, y + dy);
+        }
+    }
+}
+
+
+function setupMobileControls() {
+    let leftBtn = document.getElementById('btnLeft');
+    let rightBtn = document.getElementById('btnRight');
+
+    function pressLeft(e) {
+        e.preventDefault();
+        leftBtnHeld = true;
+        updateButtonDir();
+    }
+    function pressRight(e) {
+        e.preventDefault();
+        rightBtnHeld = true;
+        updateButtonDir();
+    }
+    function releaseBtn() {
+        leftBtnHeld = false;
+        rightBtnHeld = false;
+        updateButtonDir();
+    }
+
+    leftBtn.addEventListener('pointerdown', pressLeft);
+    rightBtn.addEventListener('pointerdown', pressRight);
+
+    for (let btn of [leftBtn, rightBtn]) {
+        btn.addEventListener('pointerup', releaseBtn);
+        btn.addEventListener('pointercancel', releaseBtn);
+        btn.addEventListener('pointerleave', releaseBtn);
+    }
+}
+
+function updateButtonDir() {
+    if (rightBtnHeld) {
+        touchDir = 1;
+    } else if (leftBtnHeld) {
+        touchDir = -1;
+    } else {
+        touchDir = 0;
     }
 }
 function draw() {
     clear();
 
-    if (gameState === "playing") {
+    if (gameState === "start") {
+
+    } else if (gameState === "playing") {
         movePlayer();
         drawPlayer();
 
@@ -39,7 +106,6 @@ function draw() {
             updateFood(foods[i]);
             drawFood(foods[i]);
 
-            // Мөргөлдөөн шалгах
             if (checkCollision(foods[i])) {
                 if (foods[i].type === "good") {
                     score += 10;
@@ -116,22 +182,73 @@ function drawPlayer() {
 }
 
 function movePlayer() {
+    let left = touchDir === -1;
+    let right = touchDir === 1;
+
     if (
         keyIsDown(LEFT_ARROW) ||
         (keyIsPressed && (key === 'a' || key === 'A' || key === 'ф' || key === 'Ф'))
     ) {
-        if (player.x - player.w / 2 > 0) {
-            player.x -= player.speed;
-        }
+        left = true;
     }
 
     if (
         keyIsDown(RIGHT_ARROW) ||
         (keyIsPressed && (key === 'd' || key === 'D' || key === 'в' || key === 'В'))
     ) {
-        if (player.x + player.w / 2 < width) {
-            player.x += player.speed;
+        right = true;
+    }
+
+    if (left && player.x - player.w / 2 > 0) {
+        player.x -= player.speed;
+    }
+
+    if (right && player.x + player.w / 2 < width) {
+        player.x += player.speed;
+    }
+}
+
+function touchStarted() {
+    if (gameState === "start") {
+        if (mouseX > 550 && mouseX < 950 && mouseY > 520 && mouseY < 680) {
+            gameState = "playing";
+
+            // PLAY дарахад CSS class нэмж арын зургийг сэлгэнэ
+            select('canvas').addClass('game-bg');
         }
+    } else if (gameState === "gameover") {
+        resetGame();
+    }
+    return false;
+}
+
+
+function mousePressed() {
+    touchStarted();
+    if (gameState === "start") {
+        if (mouseX > 550 && mouseX < 950 && mouseY > 520 && mouseY < 680) {
+            gameState = "playing";
+        }
+    }
+}
+
+function touchMoved() {
+    if (gameState === "playing") {
+        updateTouchDir();
+    }
+    return false;
+}
+
+function touchEnded() {
+    if (!leftBtnHeld && !rightBtnHeld) {
+        touchDir = 0;
+    }
+    return false;
+}
+
+function updateTouchDir() {
+    if (touches.length > 0) {
+        touchDir = touches[0].x < width / 2 ? -1 : 1;
     }
 }
 
@@ -151,27 +268,40 @@ function checkCollision(food) {
 }
 
 function drawHUD() {
-    fill(200);
-    textSize(30);
+    textStyle(BOLD);
     textAlign(LEFT, TOP);
+    textSize(36);
+
+    drawTextOutline(`Оноо: ${score}`, 30, 30);
+    drawTextOutline(`Амь: ${lives}`, 30, 75);
+
+    fill(255);
     text(`Оноо: ${score}`, 30, 30);
     text(`Амь: ${lives}`, 30, 75);
 }
 
 function drawGameOver() {
-    fill(200, 0, 0);
+    textStyle(BOLD);
     textAlign(CENTER, CENTER);
-    textSize(65);
+
+    textSize(70);
+    drawTextOutline("Тоглоом дууслаа", width / 2, height / 2 + 75, '#ffd700');
+    fill(255);
     text("Тоглоом дууслаа", width / 2, height / 2 + 75);
 
-    fill(220);
-    textSize(40);
+    textSize(45);
+    drawTextOutline(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 135, '#ffd700');
+    drawTextOutline("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 180, '#ffd700');
+    fill(255);
     text(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 135);
-    text("Дахин эхлэхийн тулд 'R' дарна уу ", width / 2, height / 2 + 180);
+    text("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 180);
 }
 
 function keyPressed() {
-    if ((key === 'r' || key === 'R') && gameState === "gameover") {
+    if (
+        (key === 'r' || key === 'R' || key === 'к' || key === 'К') &&
+        gameState === "gameover"
+    ) {
         resetGame();
     }
 }
@@ -185,3 +315,4 @@ function resetGame() {
         foods.push(createRandomFood());
     }
 }
+
