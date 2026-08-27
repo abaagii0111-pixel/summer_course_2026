@@ -20,14 +20,16 @@ let rightBtnHeld = false;
 
 let goodEmojiList = ["🍎", "🍕", "🍔", "🍓", "🍩", "🍧", "🌮", "🍰"];
 let badEmojiList = ["💣", "💩", "🦠"];
+let powerUpEmojiList = ["⚡", "🧊"];
+
+let slowTimer = 0;
+let freezeTimer = 0;
 
 function setup() {
     let canvas = createCanvas(1500, 940);
 
     canvas.elt.tabIndex = 0;
     canvas.elt.focus();
-
-    bgImg = loadImage('./screenshots/catch-food.jpeg');
 
     textFont("'Comic Sans MS', 'Chalkboard SE', 'Segoe UI', Arial, sans-serif");
 
@@ -99,6 +101,9 @@ function draw() {
     if (gameState === "start") {
 
     } else if (gameState === "playing") {
+        if (slowTimer > 0) slowTimer--;
+        if (freezeTimer > 0) freezeTimer--;
+
         movePlayer();
         drawPlayer();
 
@@ -107,7 +112,13 @@ function draw() {
             drawFood(foods[i]);
 
             if (checkCollision(foods[i])) {
-                if (foods[i].type === "good") {
+                if (foods[i].type === "powerup") {
+                    if (foods[i].symbol === "⚡") {
+                        slowTimer = 5 * 60;
+                    } else if (foods[i].symbol === "🧊") {
+                        freezeTimer = 5 * 60;
+                    }
+                } else if (foods[i].type === "good") {
                     score += 10;
                 } else {
                     lives -= 1;
@@ -130,9 +141,18 @@ function draw() {
 }
 
 function createRandomFood() {
-    let isGood = random(1) > 0.3;
-    let foodType = isGood ? "good" : "bad";
-    let foodSymbol = isGood ? random(goodEmojiList) : random(badEmojiList);
+    let isGood;
+    let foodType;
+    let foodSymbol;
+
+    if (random(1) < 0.12) {
+        foodType = "powerup";
+        foodSymbol = random(powerUpEmojiList);
+    } else {
+        isGood = random(1) > 0.3;
+        foodType = isGood ? "good" : "bad";
+        foodSymbol = isGood ? random(goodEmojiList) : random(badEmojiList);
+    }
 
     return {
         x: random(55, width - 55),
@@ -259,7 +279,14 @@ function drawFood(food) {
 }
 
 function updateFood(food) {
-    food.y += food.speed;
+    if (freezeTimer > 0) {
+        return;
+    }
+    let spd = food.speed;
+    if (slowTimer > 0) {
+        spd *= 0.5;
+    }
+    food.y += spd;
 }
 
 function checkCollision(food) {
@@ -272,29 +299,60 @@ function drawHUD() {
     textAlign(LEFT, TOP);
     textSize(36);
 
+    let effectOffset = 0;
+    if (windowWidth <= 1292) {
+        effectOffset = 25;
+    }
+
     drawTextOutline(`Оноо: ${score}`, 30, 30);
     drawTextOutline(`Амь: ${lives}`, 30, 75);
+    if (slowTimer > 0) {
+        let label = `⚡ Slow Motion: ${ceil(slowTimer / 60)}s`;
+        drawTextOutline(label, 30, 165 + effectOffset, '#0004ff');
+    }
+    if (freezeTimer > 0) {
+        let label = `🧊 Freeze: ${ceil(freezeTimer / 60)}s`;
+        drawTextOutline(label, 30, 210 + effectOffset, '#0004ff');
+    }
 
     fill(255);
     text(`Оноо: ${score}`, 30, 30);
     text(`Амь: ${lives}`, 30, 75);
+    if (slowTimer > 0) {
+        fill(255);
+        text(`⚡ Slow Motion: ${ceil(slowTimer / 60)}s`, 30, 165 + effectOffset);
+    }
+    if (freezeTimer > 0) {
+        fill(255);
+        text(`🧊 Freeze: ${ceil(freezeTimer / 60)}s`, 30, 210 + effectOffset);
+    }
 }
 
 function drawGameOver() {
+    push();
+    rectMode(CORNER);
+    noStroke();
+    fill(0, 0, 0, 140);
+    rect(0, 0, width, height);
+    pop();
+
     textStyle(BOLD);
     textAlign(CENTER, CENTER);
 
     textSize(70);
-    drawTextOutline("Тоглоом дууслаа", width / 2, height / 2 + 75, '#ffd700');
+    drawTextOutline("Тоглоом дууслаа", width / 2, height / 2 + 140, '#0004ff');
     fill(255);
-    text("Тоглоом дууслаа", width / 2, height / 2 + 75);
+    text("Тоглоом дууслаа", width / 2, height / 2 + 140);
 
-    textSize(45);
-    drawTextOutline(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 135, '#ffd700');
-    drawTextOutline("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 180, '#ffd700');
+    textSize(55);
+    drawTextOutline(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 240, '#0004ff');
     fill(255);
-    text(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 135);
-    text("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 180);
+    text(`Сүүлийн оноо: ${score}`, width / 2, height / 2 + 240);
+
+    textSize(40);
+    drawTextOutline("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 330, '#0004ff');
+    fill(255);
+    text("Дахин эхлэхийн тулд 'R' дарна уу (эсвэл дэлгэц хүрнэ)", width / 2, height / 2 + 330);
 }
 
 function keyPressed() {
@@ -309,6 +367,8 @@ function keyPressed() {
 function resetGame() {
     score = 0;
     lives = 3;
+    slowTimer = 0;
+    freezeTimer = 0;
     gameState = "playing";
     foods = [];
     for (let i = 0; i < numFoods; i++) {
