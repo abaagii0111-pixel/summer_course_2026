@@ -140,7 +140,7 @@ function draw() {
     }
 }
 
-function createRandomFood() {
+function createRandomFood() {   ``
     let isGood;
     let foodType;
     let foodSymbol;
