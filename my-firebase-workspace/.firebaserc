@@ -13,6 +13,16 @@
         ],
         "project03": [
           "my-project003-app"
+        ],
+        "project04": [
+          "batbaatariinhan-manaihaan"
+        ]
+      }
+    },
+    "batbaatariinhan": {
+      "hosting": {
+        "project04": [
+          "batbaatariinhan"
         ]
       }
     }
